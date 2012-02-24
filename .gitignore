@@ -1,0 +1,8 @@
+*~
+_*
+.htaccess
+.DS_Store
+*\#
+*.tar.gz
+*.sh
+*.#*

@@ -1,5 +1,6 @@
 /**
  * inspired by http://d.hatena.ne.jp/hotch_botch/20120224/1330029897
+ * javascript:(function(){var%20s=document.createElement('script');s.charset='UTF-8';s.src='https://raw.github.com/pm11op/namekoInfinity/master/nameko.js';document.body.appendChild(s)})();
  */
 var namekomove = [];
 
@@ -10,7 +11,10 @@ function harvest() {
   if(!namekomove[random]) {
     namekomove[random] = true;
     var id = $('#main img:eq(' + random + ')');
-    if ($(id).attr('src').indexOf('golden.png') > -1) return;
+    if ($(id).attr('src').indexOf('golden.png') > -1) {
+      namekotachi.splice(id, 1);
+      return;
+    }
 
     var top = $(id).css('top');
     var left = $(id).css('left');
@@ -31,7 +35,7 @@ function harvest() {
     );
     $(id).animate({ width:"show", height:"show",top:top, left:left}, "normal",
       function(){
-        $("#namekoNum").html(++namekoNum + "譛ｬ");
+        $("#namekoNum").html(++namekoNum + "本");
         namekomove[random] = false;
       }
     );
